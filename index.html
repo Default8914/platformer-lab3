@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Platformer Lab 3</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <div>
+        <h1>Платформер</h1>
+        <p class="muted">A/D или ←/→ — движение • Space/W/↑ — прыжок</p>
+      </div>
+
+      <div class="hud">
+        <div class="pill">Уровень: <span id="level">1</span></div>
+        <div class="pill">Очки: <span id="score">0</span></div>
+        <div class="pill">Лучший: <span id="best">0</span></div>
+      </div>
+
+      <div class="buttons">
+        <button id="btnStart" class="btn">Старт</button>
+        <button id="btnPause" class="btn btn-ghost" disabled>Пауза</button>
+        <button id="btnRestart" class="btn btn-ghost" disabled>Рестарт</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <canvas id="game" width="960" height="540" aria-label="Игровое поле"></canvas>
+    <p class="hint" id="hint"></p>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-row">
+      <span>Нейросеть: <strong>ChatGPT</strong> — <strong>45 минут</strong></span>
+      <span class="muted">Создано с помощью нейросети: структура проекта, классы, коллизии, UI</span>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
