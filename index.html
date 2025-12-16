@@ -2,41 +2,51 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Platformer Lab 3</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Platformer Lab 3 — 5 уровней</title>
   <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="data:,">
 </head>
 <body>
-  <header class="top">
-    <div class="wrap">
-      <div>
-        <h1>Платформер</h1>
-        <p class="muted">A/D или ←/→ — движение • Space/W/↑ — прыжок</p>
+  <header class="topbar">
+    <div class="wrap topbar__row">
+      <div class="brand">
+        <div class="logo">PL3</div>
+        <div>
+          <div class="title">Platformer Lab 3</div>
+          <div class="subtitle">Canvas • OOP • ES Modules • 5 Levels</div>
+        </div>
       </div>
 
-      <div class="hud">
-        <div class="pill">Уровень: <span id="level">1</span></div>
-        <div class="pill">Очки: <span id="score">0</span></div>
-        <div class="pill">Лучший: <span id="best">0</span></div>
-      </div>
-
-      <div class="buttons">
+      <div class="controls">
         <button id="btnStart" class="btn">Старт</button>
-        <button id="btnPause" class="btn btn-ghost" disabled>Пауза</button>
-        <button id="btnRestart" class="btn btn-ghost" disabled>Рестарт</button>
+        <button id="btnPause" class="btn btn-ghost">Пауза</button>
+        <button id="btnRestart" class="btn btn-ghost">Рестарт</button>
       </div>
     </div>
   </header>
 
-  <main class="wrap">
-    <canvas id="game" width="960" height="540" aria-label="Игровое поле"></canvas>
-    <p class="hint" id="hint"></p>
+  <main class="wrap main">
+    <section class="hud" aria-label="Игровая панель">
+      <div class="hud__item">Уровень: <strong id="hudLevel">1</strong>/5</div>
+      <div class="hud__item">Очки: <strong id="hudScore">0</strong></div>
+      <div class="hud__item">Монеты: <strong id="hudCoins">0</strong></div>
+      <div class="hud__item muted">Управление: A/D или ←/→, прыжок Space/W/↑</div>
+    </section>
+
+    <section class="stage">
+      <canvas id="game" width="900" height="500"></canvas>
+      <div class="help">
+        <div><strong>Цель:</strong> собрать монеты и дойти до финиша 🏁</div>
+        <div><strong>Опасность:</strong> шипы ☠️ и падение вниз</div>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
-    <div class="wrap footer-row">
-      <span>Нейросеть: <strong>ChatGPT</strong> — <strong>45 минут</strong></span>
-      <span class="muted">Создано с помощью нейросети: структура проекта, классы, коллизии, UI</span>
+    <div class="wrap footer__row">
+      <span>Нейросеть: <strong>ChatGPT</strong> — <strong>90 минут</strong> (поставь своё реальное)</span>
+      <span class="muted">JS: game loop, физика, коллизии, 5 уровней, localStorage</span>
     </div>
   </footer>
 
