@@ -1,15 +1,29 @@
+> Иван:
 export class Platform {
-  constructor(x, y, w, h, type = "solid") {
+  constructor({ x, y, w, h }) {
     this.x = x; this.y = y; this.w = w; this.h = h;
-    this.type = type; // можно расширять (опасные и т.п.)
   }
 
   draw(ctx) {
-    ctx.save();
-    ctx.fillStyle = "rgba(255,255,255,0.18)";
+    ctx.fillStyle = "rgba(255,255,255,0.12)";
     ctx.fillRect(this.x, this.y, this.w, this.h);
-    ctx.strokeStyle = "rgba(255,255,255,0.22)";
-    ctx.strokeRect(this.x, this.y, this.w, this.h);
-    ctx.restore();
+
+    ctx.fillStyle = "rgba(255,255,255,0.06)";
+    ctx.fillRect(this.x, this.y, this.w, 3);
+  }
+}
+
+> Иван:
+export class Platform {
+  constructor({ x, y, w, h }) {
+    this.x = x; this.y = y; this.w = w; this.h = h;
+  }
+
+  draw(ctx) {
+    ctx.fillStyle = "rgba(255,255,255,0.12)";
+    ctx.fillRect(this.x, this.y, this.w, this.h);
+
+    ctx.fillStyle = "rgba(255,255,255,0.06)";
+    ctx.fillRect(this.x, this.y, this.w, 3);
   }
 }
