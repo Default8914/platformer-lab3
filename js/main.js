@@ -1,23 +1,38 @@
 import { Game } from "./Game.js";
+import { InputHandler } from "./InputHandler.js";
 
 const canvas = document.getElementById("game");
-
-const ui = {
-  scoreEl: document.getElementById("score"),
-  levelEl: document.getElementById("level"),
-  bestEl: document.getElementById("best"),
-  hintEl: document.getElementById("hint"),
-  btnStart: document.getElementById("btnStart"),
-  btnPause: document.getElementById("btnPause"),
-  btnRestart: document.getElementById("btnRestart"),
+const hud = {
+  level: document.getElementById("hudLevel"),
+  score: document.getElementById("hudScore"),
+  coins: document.getElementById("hudCoins")
 };
 
-const game = new Game(canvas, ui);
+const input = new InputHandler();
+const game = new Game(canvas, hud);
 
-ui.btnStart.addEventListener("click", () => game.start());
-ui.btnPause.addEventListener("click", () => game.pauseToggle());
-ui.btnRestart.addEventListener("click", () => game.restart());
+const btnStart = document.getElementById("btnStart");
+const btnPause = document.getElementById("btnPause");
+const btnRestart = document.getElementById("btnRestart");
 
-// быстрая подсказка при загрузке
-ui.hintEl.textContent = "Нажми «Старт». Собери все монеты и дойди до зелёного портала.";
-ui.bestEl.textContent = localStorage.getItem("platformer_best") || "0";
+btnStart.addEventListener("click", () => {
+  if (game.state === "idle") {
+    game.start(input);
+    requestAnimationFrame(game.step);
+  } else if (game.state === "lose" || game.state === "finished") {
+    game.restartLevel();
+  }
+});
+
+btnPause.addEventListener("click", () => {
+  game.togglePause();
+});
+
+btnRestart.addEventListener("click", () => {
+  if (game.state === "idle") {
+    game.start(input);
+    requestAnimationFrame(game.step);
+  } else {
+    game.restartLevel();
+  }
+});
