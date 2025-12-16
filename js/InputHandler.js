@@ -19,7 +19,7 @@ export class InputHandler {
     if (key === "a" || key === "ArrowLeft") this.left = true;
     if (key === "d" || key === "ArrowRight") this.right = true;
 
-    if (key === "w"  key === " "  key === "ArrowUp") {
+    if (key === "w" || key === " " || key === "ArrowUp") {
       if (!this.jump) this.jumpPressed = true;
       this.jump = true;
       e.preventDefault();
@@ -32,7 +32,7 @@ export class InputHandler {
     if (key === "a" || key === "ArrowLeft") this.left = false;
     if (key === "d" || key === "ArrowRight") this.right = false;
 
-    if (key === "w"  key === " "  key === "ArrowUp") {
+    if (key === "w" || key === " " || key === "ArrowUp") {
       this.jump = false;
       e.preventDefault();
     }
@@ -47,3 +47,4 @@ export class InputHandler {
     window.removeEventListener("keyup", this._up);
   }
 }
+
